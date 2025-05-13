@@ -9,8 +9,8 @@ pipeline {
         stage('Build') {
             steps {
                 //script {
-                    sh 'npm install' // Or yarn install, depending on your project
-                    sh 'ng build --prod' // Build for production
+                   // sh 'npm install' // Or yarn install, depending on your project
+                    //sh 'ng build --prod' // Build for production
                     // Run tests here if needed: sh 'ng test'
                // }
             }
