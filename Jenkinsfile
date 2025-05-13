@@ -44,10 +44,10 @@ pipeline {
                 git 'https://github.com/supratikd/SAP-BTP-Pipeline.git'
             }
         }
-        // stage('build') {
-        //     steps {
-        //         sh 'node --version'
-        //     }
-        // }
+        stage('build') {
+            steps {
+                sh 'node --version'
+            }
+        }
     }
 }
