@@ -1,11 +1,11 @@
-// pipeline {
-//     // agent any
-//     // tools { nodejs "NodeJS" }
-//     // stages {
-//     //     stage('Build') {
-//     //         steps {
-//     //             sh 'npm install'
-//     //         }
-//     //     }
-//     // }
-// }
+pipeline {
+    agent any
+    // tools { nodejs "NodeJS" }
+    stages {
+    //     stage('Build') {
+    //         steps {
+    //             sh 'npm install'
+    //         }
+    //     }
+    }
+}
