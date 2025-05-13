@@ -39,10 +39,15 @@
 pipeline {
     agent any
     stages {
-        stage('build') {
+       stage('Checkout') {
             steps {
-                sh 'node --version'
+                git 'https://github.com/supratikd/SAP-BTP-Pipeline.git'
             }
         }
+        // stage('build') {
+        //     steps {
+        //         sh 'node --version'
+        //     }
+        // }
     }
 }
