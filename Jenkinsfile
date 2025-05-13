@@ -8,6 +8,7 @@ pipeline {
         }
         stage('Build') {
             steps {
+               git 'https://github.com/supratikd/SAP-BTP-Pipeline.git'
                 //script {
                    // sh 'npm install' // Or yarn install, depending on your project
                     //sh 'ng build --prod' // Build for production
