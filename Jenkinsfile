@@ -6,15 +6,15 @@ pipeline {
                 git 'https://github.com/supratikd/SAP-BTP-Pipeline.git'
             }
         }
-        // stage('Build') {
-        //     steps {
-        //         script {
-        //             sh 'npm install' // Or yarn install, depending on your project
-        //             sh 'ng build --prod' // Build for production
-        //             // Run tests here if needed: sh 'ng test'
-        //         }
-        //     }
-        // }
+        stage('Build') {
+            steps {
+                //script {
+                    sh 'npm install' // Or yarn install, depending on your project
+                    sh 'ng build --prod' // Build for production
+                    // Run tests here if needed: sh 'ng test'
+               // }
+            }
+        }
         // stage('Deploy') {
         //     when {
         //         anyOf {
