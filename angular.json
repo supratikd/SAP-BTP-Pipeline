@@ -15,11 +15,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/sap-btp-pipeline",
             "index": "src/index.html",
-            "browser": "src/main.ts",
+            "main": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
@@ -36,36 +36,74 @@
           },
           "configurations": {
             "production": {
+              "assets": [
+                "src/favicon.ico",
+                "src/assets",
+                {
+                  "input": "src/cf",
+                  "output": "/",
+                  "glob": "*.json"
+                },
+                {
+                  "input": "src/cf/config",
+                  "output": "/",
+                  "glob": "*.json"
+                }
+              ],
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "10mb",
+                  "maximumError": "15mb"
                 }
-              ],
-              "outputHashing": "all"
+              ]
             },
             "development": {
+              "assets": [
+                "src/favicon.ico",
+                "src/assets",
+                {
+                  "input": "src/cf",
+                  "output": "/",
+                  "glob": "*.json"
+                },
+                {
+                  "input": "src/cf/config",
+                  "output": "/",
+                  "glob": "*.json"
+                }
+              ],
+              "buildOptimizer": false,
               "optimization": false,
+              "vendorChunk": true,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "namedChunks": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "10mb",
+                  "maximumError": "15mb"
+                }
+              ]
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "development"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "SAP-BTP-Pipeline:build:production"
+              "browserTarget": "SAP-BTP-Pipeline:build:production"
             },
             "development": {
-              "buildTarget": "SAP-BTP-Pipeline:build:development"
+              "browserTarget": "SAP-BTP-Pipeline:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +111,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "SAP-BTP-Pipeline:build"
+            "browserTarget": "SAP-BTP-Pipeline:build"
           }
         },
         "test": {
@@ -97,5 +135,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

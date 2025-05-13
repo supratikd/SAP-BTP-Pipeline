@@ -1,0 +1,12 @@
+{
+  "name": "sap-btp-guide",
+  "version": "0.0.1",
+  "description": "SAP BTP Guide",
+  "scripts": {
+    "start": "node node_modules/@sap/approuter/approuter.js"
+  },
+  "dependencies": {
+    "@angular/cdk": "^13.3.3",
+    "@sap/approuter": "^14.1.1"
+  }
+}

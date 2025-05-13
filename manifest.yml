@@ -1,0 +1,16 @@
+---
+applications:
+  - name: sap-btp-pipeline
+    memory: 512M
+    path: ./dist/sap-btp-pipeline
+    disk_quota: 512M
+    stack: cflinuxfs4
+    buildpacks:
+      - nodejs_buildpack
+    instances: 1
+    random-route: false
+    env:
+      TENANT_HOST_PATTERN: '^(.*)-sap-btp-pipeline.cfapps.us10-001.hana.ondemand.com'
+      SESSION_TIMEOUT: 960
+    services:
+      - xsuaa-application

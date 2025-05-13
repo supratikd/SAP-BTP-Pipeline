@@ -1,0 +1,18 @@
+{
+    "xsappname": "sap-btp-pipeline",
+    "tenant-mode": "dedicated",
+    "oauth2-configuration": {
+        "token-validity": 900,
+        "redirect-uris": [
+            "https://*.hana.ondemand.com/**"
+        ],
+        "credential-types": [
+            "binding-secret",
+            "x509"
+        ]
+    },
+    "scopes": [],
+    "attributes": [],
+    "role-templates": [],
+    "role-collections": []
+}
