@@ -1,5 +1,5 @@
 stage('Build') {
     steps {
-      npm i
+      sh npm i
      }
 }
