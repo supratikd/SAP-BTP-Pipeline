@@ -1,25 +1,24 @@
 pipeline {
   agent any
   stages {
-    stage('Checkout') {
+      stage('Checkout') {
+          steps {
+            git 'https://github.com/supratikd/SAP-BTP-Pipeline.git'
+          }
+      }
+      stage('Build') {
         steps {
-          git 'https://github.com/supratikd/SAP-BTP-Pipeline.git'
+          bat 'npm install' 
+          bat 'npm run ng -- build' 
         }
-    }
-    stage('Build') {
+      }
+      stage('Confirm Deploy to staging') {
       steps {
-        bat 'npm install' 
-        bat 'npm run ng -- build' 
+        timeout(time: 60, unit: 'SECONDS') {
+          input(message: 'Okay to Deploy?', ok: 'Let\'s Do it!')
+        }
       }
     }
-
-    stage('Confirm Deploy to staging') {
-     steps {
-       timeout(time: 60, unit: 'SECONDS') {
-         input(message: 'Okay to Deploy?', ok: 'Let\'s Do it!')
-       }
-     }
-   }
     stage('Test') {
       steps {
         echo 'Run tests'
